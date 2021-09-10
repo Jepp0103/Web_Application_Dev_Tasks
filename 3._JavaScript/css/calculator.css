@@ -1,0 +1,33 @@
+body {
+    font-family: 'Segoe UI';
+}
+
+header {
+    background-color: #20408a
+    ;
+}
+
+header > h1 {
+    color: #FFFF;
+}
+
+#resultDiv {
+    
+}
+
+#taxAmountDiv, #finalAmountDiv {
+    padding: 1rem;
+}
+
+#calcBtn {
+    color: #20408a;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+
+}
+
+#resultDiv {
+    background-color: #a9abae;
+    border-radius: 1rem;
+
+}
