@@ -2,12 +2,15 @@ body {
     font-family: 'Segoe UI';
 }
 
-header {
-    background-color: #20408a
-    ;
+header, footer {
+    background-color: #20408a;
 }
 
-header > h1 {
+footer {
+    text-align: center;
+}
+
+header > h1, footer > p {
     color: #FFFF;
     padding: 0.5rem;
 }
@@ -16,7 +19,6 @@ header > h1 {
     color: #20408a;
     font-size: 1rem;
     padding: 0.5rem 1rem;
-
 }
 
 #resultDiv > p {
