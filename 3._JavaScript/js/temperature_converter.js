@@ -1,12 +1,12 @@
 window.onload = function () {
-    chooseFromAndToUnits();
+    chooseTemperatureFromAndToUnits();
 
     // document.getElementById("calcBtn").onclick = function () {
     //     displayTaxAmountAndFinalAmount()
     // }
 }
 
-function chooseFromAndToUnits() {
+function chooseTemperatureFromAndToUnits() {
     let fromCelClickCounter = 0;
     let fromFahrClickCounter = 0;
     let fromKelClickCounter = 0;
@@ -67,4 +67,11 @@ function chooseFromAndToUnits() {
         }
         toKelClickCounter++;
     }
+}
+
+function calculateTemperatureConversion(unitOne, unitTwo) {
+
+    //celcius to fahrenheit
+    if ()
+    c * 2.12
 }
