@@ -5,9 +5,8 @@ window.onload = function () {
 }
 
 function displayTaxAmountAndFinalAmount() {
-    monetaryAmountInput = document.getElementById("monetary_amount").value;
-    taxPercentageInput = document.getElementById("tax_percentage").value;
-
+    let monetaryAmountInput = document.getElementById("monetary_amount").value;
+    let taxPercentageInput = document.getElementById("tax_percentage").value;
     document.getElementById("taxAmount").innerHTML = calculateTaxAmount(monetaryAmountInput, taxPercentageInput);
     document.getElementById("finalAmount").innerHTML = calculateFinalAmount(monetaryAmountInput, taxPercentageInput);
 };

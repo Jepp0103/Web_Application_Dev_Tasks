@@ -9,14 +9,7 @@ header {
 
 header > h1 {
     color: #FFFF;
-}
-
-#resultDiv {
-    
-}
-
-#taxAmountDiv, #finalAmountDiv {
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 #calcBtn {
@@ -26,8 +19,13 @@ header > h1 {
 
 }
 
+#resultDiv > p {
+    font-weight: bold;
+}
+
 #resultDiv {
     background-color: #a9abae;
     border-radius: 1rem;
-
+    padding: 0.1em;
+    padding-left: 1em;
 }
