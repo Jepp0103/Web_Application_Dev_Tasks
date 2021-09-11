@@ -105,10 +105,10 @@ function chooseTemperatureFromAndToUnits() {
 function calculateTemperatureConversion(fromUnit, toUnit) {
     console.log("from unit", fromUnit)
     console.log("to unit", toUnit)
-    tempNumber = parseInt(document.getElementById("convertNumber").value).toFixed(2); //Getting convert number
+    tempNumber = document.getElementById("convertNumber").value; //Getting convert number
     console.log("tempNumber", tempNumber)
 
-    if (fromUnit = "cel" && toUnit == "fahr") { //Celcius to fahrenheit
+    if (fromUnit = "cel" && toUnit == "fahr") {
         console.log("final result", tempNumber * 1.8 + 32)
     }
 }
