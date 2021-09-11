@@ -1,3 +1,7 @@
+let fromUnit = ""; //Setting chosen units in dropdown globally in order to do the calculation
+let toUnit = "";
+let tempNumber = 0;
+
 window.onload = function () {
     chooseTemperatureFromAndToUnits();
 
@@ -7,6 +11,7 @@ window.onload = function () {
 }
 
 function chooseTemperatureFromAndToUnits() {
+    //Shortening all elements in naming
     let fromKel = document.getElementById("from_kel");
     let fromCel = document.getElementById("from_cel");
     let fromFahr = document.getElementById("from_fahr");
@@ -14,69 +19,96 @@ function chooseTemperatureFromAndToUnits() {
     let toCel = document.getElementById("to_cel");
     let toFahr = document.getElementById("to_fahr");
 
+    let calcBtn = document.getElementById("calcBtn");
 
+    //Setting all elements with background color white
+    fromFahr.style.backgroundColor = "#fff";
+    fromKel.style.backgroundColor = "#fff";
+    fromCel.style.backgroundColor = "#fff";
+    toKel.style.backgroundColor = "#fff";
+    toFahr.style.backgroundColor = "#fff";
+    toFahr.style.backgroundColor = "#fff";
+
+    //All buttons for chosing units to convert
     fromCel.onclick = function () {
         if (fromCel.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
             fromCel.style.backgroundColor = "#a9abae";
             fromFahr.style.backgroundColor = "#fff";
             fromKel.style.backgroundColor = "#fff";
+            fromUnit = "cel";
         } else {
             fromCel.style.backgroundColor = "#fff";
         }
     }
 
-    document.getElementById("from_fahr").onclick = function () {
+    fromFahr.onclick = function () {
         if (fromFahr.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
             fromFahr.style.backgroundColor = "#a9abae";
             fromKel.style.backgroundColor = "#fff";
             fromCel.style.backgroundColor = "#fff";
+            fromUnit = "fahr";
         } else {
             fromFahr.style.backgroundColor = "#fff";
         }
     }
 
-    document.getElementById("from_kel").onclick = function () {
+    fromKel.onclick = function () {
         if (fromKel.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
             fromKel.style.backgroundColor = "#a9abae";
             fromCel.style.backgroundColor = "#fff";
             fromFahr.style.backgroundColor = "#fff";
+            fromUnit = "kel";
         } else {
             fromKel.style.backgroundColor = "#fff";
         }
     }
 
-    document.getElementById("to_cel").onclick = function () {
+    toCel.onclick = function () {
         if (toCel.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
             toCel.style.backgroundColor = "#a9abae";
             toKel.style.backgroundColor = "#fff";
             toFahr.style.backgroundColor = "#fff";
+            toUnit = "cel";
         } else {
             toCel.style.backgroundColor = "#fff";
         }
     }
 
-    document.getElementById("to_fahr").onclick = function () {
-        if (toFahrClickCounter % 2 == 0) {
-            document.getElementById("to_fahr").style.backgroundColor = "#a9abae";
+    toFahr.onclick = function () {
+        if (toFahr.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
+            toFahr.style.backgroundColor = "#a9abae";
+            toKel.style.backgroundColor = "#fff";
+            toCel.style.backgroundColor = "#fff";
+            toUnit = "fahr";
         } else {
-            document.getElementById("to_fahr").style.backgroundColor = "#fff";
+            toFahr.style.backgroundColor = "#fff";
         }
-        toFahrClickCounter++;
     }
 
-    document.getElementById("to_kel").onclick = function () {
-        if (toKelClickCounter % 2 == 0) {
-            document.getElementById("to_kel").style.backgroundColor = "#a9abae";
+    toKel.onclick = function () {
+        if (toKel.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
+            toKel.style.backgroundColor = "#a9abae";
+            toCel.style.backgroundColor = "#fff";
+            toFahr.style.backgroundColor = "#fff";
+            toUnit = "kel";
         } else {
-            document.getElementById("to_kel").style.backgroundColor = "#fff";
+            toKel.style.backgroundColor = "#fff";
         }
-        toKelClickCounter++;
+    }
+
+    //Calculation buttons when units have been chosen
+    calcBtn.onclick = function () {
+        calculateTemperatureConversion(fromUnit, toUnit)
     }
 }
 
-// function calculateTemperatureConversion(unitOne, unitTwo) {
+function calculateTemperatureConversion(fromUnit, toUnit) {
+    console.log("from unit", fromUnit)
+    console.log("to unit", toUnit)
+    tempNumber = parseInt(document.getElementById("convertNumber").value).toFixed(2); //Getting convert number
+    console.log("tempNumber", tempNumber)
 
-//     //celcius to fahrenheit
-//     if ()
-//     c * 2.12
-// }
+    if (fromUnit = "cel" && toUnit == "fahr") { //Celcius to fahrenheit
+        console.log("final result", tempNumber * 1.8 + 32)
+    }
+}
