@@ -7,47 +7,52 @@ window.onload = function () {
 }
 
 function chooseTemperatureFromAndToUnits() {
-    let fromCelClickCounter = 0;
-    let fromFahrClickCounter = 0;
-    let fromKelClickCounter = 0;
-    let toCelClickCounter = 0;
-    let toFahrClickCounter = 0;
-    let toKelClickCounter = 0;
+    let fromKel = document.getElementById("from_kel");
+    let fromCel = document.getElementById("from_cel");
+    let fromFahr = document.getElementById("from_fahr");
+    let toKel = document.getElementById("to_kel");
+    let toCel = document.getElementById("to_cel");
+    let toFahr = document.getElementById("to_fahr");
 
-    document.getElementById("from_cel").onclick = function () {
-        if (fromCelClickCounter % 2 == 0) {
-            document.getElementById("from_cel").style.backgroundColor = "#a9abae";
+
+    fromCel.onclick = function () {
+        if (fromCel.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
+            fromCel.style.backgroundColor = "#a9abae";
+            fromFahr.style.backgroundColor = "#fff";
+            fromKel.style.backgroundColor = "#fff";
         } else {
-            document.getElementById("from_cel").style.backgroundColor = "#fff";
+            fromCel.style.backgroundColor = "#fff";
         }
-        fromCelClickCounter++;
     }
 
     document.getElementById("from_fahr").onclick = function () {
-        if (fromFahrClickCounter % 2 == 0) {
-            document.getElementById("from_fahr").style.backgroundColor = "#a9abae";
+        if (fromFahr.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
+            fromFahr.style.backgroundColor = "#a9abae";
+            fromKel.style.backgroundColor = "#fff";
+            fromCel.style.backgroundColor = "#fff";
         } else {
-            document.getElementById("from_fahr").style.backgroundColor = "#fff";
+            fromFahr.style.backgroundColor = "#fff";
         }
-        fromFahrClickCounter++;
     }
 
     document.getElementById("from_kel").onclick = function () {
-        if (fromKelClickCounter % 2 == 0) {
-            document.getElementById("from_kel").style.backgroundColor = "#a9abae";
+        if (fromKel.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
+            fromKel.style.backgroundColor = "#a9abae";
+            fromCel.style.backgroundColor = "#fff";
+            fromFahr.style.backgroundColor = "#fff";
         } else {
-            document.getElementById("from_kel").style.backgroundColor = "#fff";
+            fromKel.style.backgroundColor = "#fff";
         }
-        fromKelClickCounter++;
     }
 
     document.getElementById("to_cel").onclick = function () {
-        if (toCelClickCounter % 2 == 0) {
-            document.getElementById("to_cel").style.backgroundColor = "#a9abae";
+        if (toCel.style.backgroundColor.toString() === "rgb(255, 255, 255)") {
+            toCel.style.backgroundColor = "#a9abae";
+            toKel.style.backgroundColor = "#fff";
+            toFahr.style.backgroundColor = "#fff";
         } else {
-            document.getElementById("to_cel").style.backgroundColor = "#fff";
+            toCel.style.backgroundColor = "#fff";
         }
-        toCelClickCounter++;
     }
 
     document.getElementById("to_fahr").onclick = function () {
@@ -69,9 +74,9 @@ function chooseTemperatureFromAndToUnits() {
     }
 }
 
-function calculateTemperatureConversion(unitOne, unitTwo) {
+// function calculateTemperatureConversion(unitOne, unitTwo) {
 
-    //celcius to fahrenheit
-    if ()
-    c * 2.12
-}
+//     //celcius to fahrenheit
+//     if ()
+//     c * 2.12
+// }
