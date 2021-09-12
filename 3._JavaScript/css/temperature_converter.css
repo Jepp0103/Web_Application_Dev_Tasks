@@ -70,3 +70,10 @@ li {
 #from_cel, #from_fahr, #from_kel, #to_cel, #to_fahr, #to_kel {
     cursor: pointer;
 }
+
+#resultDiv {
+    display: none;
+    background-color: #a9abae;
+    border-radius: 1rem;
+    padding: 0.8em;
+}

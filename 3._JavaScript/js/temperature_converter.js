@@ -1,13 +1,15 @@
-let fromUnit = ""; //Setting chosen units in dropdown globally in order to do the calculation
-let toUnit = "";
-let tempNumber = 0;
+let fromUnit; //Setting chosen units in dropdown globally in order to do the calculation
+let toUnit;
+let tempNumber;
+let resultNumber;
 
 window.onload = function () {
     chooseTemperatureFromAndToUnits();
 
-    // document.getElementById("calcBtn").onclick = function () {
-    //     displayTaxAmountAndFinalAmount()
-    // }
+    let calcBtn = document.getElementById("calcBtn"); //Calculation button when units have been chosen
+    calcBtn.onclick = function () {
+        calculateTemperatureConversion(fromUnit, toUnit)
+    }
 }
 
 function chooseTemperatureFromAndToUnits() {
@@ -18,8 +20,6 @@ function chooseTemperatureFromAndToUnits() {
     let toKel = document.getElementById("to_kel");
     let toCel = document.getElementById("to_cel");
     let toFahr = document.getElementById("to_fahr");
-
-    let calcBtn = document.getElementById("calcBtn");
 
     //Setting all elements with background color white
     fromFahr.style.backgroundColor = "#fff";
@@ -35,7 +35,7 @@ function chooseTemperatureFromAndToUnits() {
             fromCel.style.backgroundColor = "#a9abae";
             fromFahr.style.backgroundColor = "#fff";
             fromKel.style.backgroundColor = "#fff";
-            fromUnit = "cel";
+            fromUnit = "°C";
         } else {
             fromCel.style.backgroundColor = "#fff";
         }
@@ -46,7 +46,7 @@ function chooseTemperatureFromAndToUnits() {
             fromFahr.style.backgroundColor = "#a9abae";
             fromKel.style.backgroundColor = "#fff";
             fromCel.style.backgroundColor = "#fff";
-            fromUnit = "fahr";
+            fromUnit = "°F";
         } else {
             fromFahr.style.backgroundColor = "#fff";
         }
@@ -57,7 +57,7 @@ function chooseTemperatureFromAndToUnits() {
             fromKel.style.backgroundColor = "#a9abae";
             fromCel.style.backgroundColor = "#fff";
             fromFahr.style.backgroundColor = "#fff";
-            fromUnit = "kel";
+            fromUnit = "K";
         } else {
             fromKel.style.backgroundColor = "#fff";
         }
@@ -68,7 +68,7 @@ function chooseTemperatureFromAndToUnits() {
             toCel.style.backgroundColor = "#a9abae";
             toKel.style.backgroundColor = "#fff";
             toFahr.style.backgroundColor = "#fff";
-            toUnit = "cel";
+            toUnit = "°C";
         } else {
             toCel.style.backgroundColor = "#fff";
         }
@@ -79,7 +79,7 @@ function chooseTemperatureFromAndToUnits() {
             toFahr.style.backgroundColor = "#a9abae";
             toKel.style.backgroundColor = "#fff";
             toCel.style.backgroundColor = "#fff";
-            toUnit = "fahr";
+            toUnit = "°F";
         } else {
             toFahr.style.backgroundColor = "#fff";
         }
@@ -90,25 +90,55 @@ function chooseTemperatureFromAndToUnits() {
             toKel.style.backgroundColor = "#a9abae";
             toCel.style.backgroundColor = "#fff";
             toFahr.style.backgroundColor = "#fff";
-            toUnit = "kel";
+            toUnit = "K";
         } else {
             toKel.style.backgroundColor = "#fff";
         }
     }
-
-    //Calculation buttons when units have been chosen
-    calcBtn.onclick = function () {
-        calculateTemperatureConversion(fromUnit, toUnit)
-    }
 }
 
 function calculateTemperatureConversion(fromUnit, toUnit) {
-    console.log("from unit", fromUnit)
-    console.log("to unit", toUnit)
-    tempNumber = document.getElementById("convertNumber").value; //Getting convert number
-    console.log("tempNumber", tempNumber)
+    tempNumber = parseFloat(document.getElementById("convertNumber").value); //Passing number in input into float
 
-    if (fromUnit = "cel" && toUnit == "fahr") {
-        console.log("final result", tempNumber * 1.8 + 32)
+    if ((fromUnit === "°C" && toUnit === "°C") || (fromUnit === "°F" && toUnit === "°F") || (fromUnit === "K" && toUnit === "K")) {
+        alert("Can't convert the same unit.")
+    }
+
+    if (fromUnit === "°C" && toUnit === "°F") {
+        resultNumber = tempNumber * 1.8 + 32;
+        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
+    }
+
+    if (fromUnit === "°C" && toUnit === "°F") {
+        resultNumber = tempNumber * 1.8 + 32;
+        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
+    }
+
+    if (fromUnit === "°C" && toUnit === "K") {
+        resultNumber = tempNumber + 273.15;
+        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
+    }
+
+    if (fromUnit === "°F" && toUnit === "°C") {
+        resultNumber = (tempNumber - 32) / 1.8;
+        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
+    }
+
+    if (fromUnit === "°F" && toUnit === "K") {
+        resultNumber = (tempNumber − 32) * 5 / 9 + 273.15;
+        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
+    }
+
+}
+
+function displayResult(tempNumber, fromUnit, resultNumber, toUnit) {
+    let resultDiv = document.getElementById("resultDiv");
+    if (resultDiv.innerHTML === "") {
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML += tempNumber + fromUnit + " = <b>" + resultNumber + toUnit + "</b>";
+    } else {
+        resultDiv.innerHTML = "";
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML += tempNumber + fromUnit + " = <b>" + resultNumber + toUnit + "</b>";
     }
 }
