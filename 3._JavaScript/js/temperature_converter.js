@@ -125,7 +125,17 @@ function calculateTemperatureConversion(fromUnit, toUnit) {
     }
 
     if (fromUnit === "°F" && toUnit === "K") {
-        resultNumber = (tempNumber − 32) * 5 / 9 + 273.15;
+        resultNumber = (tempNumber - 32) * 5 / 9 + 273.15;
+        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
+    }
+
+    if (fromUnit === "K" && toUnit === "°C") {
+        resultNumber = tempNumber - 273.15;
+        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
+    }
+
+    if (fromUnit === "K" && toUnit === "°F") {
+        resultNumber = (tempNumber - 273.15) * 9 / 5 + 32;
         displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
     }
 
