@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0rem;
+}
+
+body {
+    font-family: 'Segoe UI';
+}
+
+header, footer {
+    background-color: #20408a;
+}
+
+footer {
+    text-align: center;
+}
+
+header > h1, footer > p {
+    color: #FFFF;
+    padding: 0.5rem;
+}
+
+#formDiv {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-left: 0.6em;
+}
+
+#addBtn {
+    color: #20408a;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.subFormDivs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.textInput {
+    width: 50em;
+}
+
+#yearInput {
+    width: 15em;
+} 
+
+#authorDiv {
+    padding-right: 3em;
+}
+
+#titleDiv, #yearDiv {
+    padding-right: 4.2em;
+}
+
+#recordsDiv {
+    display: flex;
+    justify-content: space-around;
+    border-style: groove;
+    border-color: #000;
+}
+
+.recordsElement {
+    color: #FFF;
+}
+
+#addedAuthorDiv, #addedTitleDiv, #addedYearDiv {
+    text-align: center;
+    background-color:#20408a;
+
+}
+
+.recElms {
+    color: #FFF;
+}

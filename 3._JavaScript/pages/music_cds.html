@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music CDs</title>
+    <link rel="stylesheet" href="../css/music_cds.css">
+    <script src="../js/music_cds.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Music CDs</h1>
+    </header>
+    <main>
+        <div id="formDiv">
+            <div class="subFormDivs">
+                <div id="authorDiv">
+                    <label for="authorInput">Author</label>
+                </div>
+                <div class="textInputDivs">
+                    <input class="textInput" type="text" name="authorInput" id="authorInput">
+                </div>
+            </div>
+            <div class="subFormDivs">
+                <div id="titleDiv">
+                    <label for="titleInput">Title</label>
+                </div>
+                <div>
+                    <input class="textInput" type=" text" name="titleInput" id="titleInput">
+                </div>
+            </div>
+            <div class="subFormDivs">
+                <div id="yearDiv">
+                    <label for="yearInput">Year</label>
+                </div>
+                <div>
+                    <input id="yearInput" type="number" name="yearInput" id="yearInput">
+                </div>
+            </div>
+            <br>
+        </div>
+        <button id="addBtn">Add</button>
+        <br><br>
+        <div id="recordsDiv">
+            <div id="addedAuthorDiv">
+                <p class="recordsElement">Author</p>
+            </div>
+            <div id="addedTitleDiv">
+                <p class="recordsElement">Title</p>
+            </div>
+            <div id="addedYearDiv">
+                <p class="recordsElement">Year</p>
+            </div>
+        </div>
+    </main>
+    <br>
+    <footer>
+        <p id="copyrightText">&#169; 2021 Jeppe Nannestad Dyekjaer</p>
+    </footer>
+</body>
+
+</html>
