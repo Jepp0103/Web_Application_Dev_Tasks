@@ -59,7 +59,7 @@ function deleteRecord() {
     console.log("deleting??")
     let chosenDeleteButton = document.getElementById("recDelBtn0")
 
-    chosendeleteButton.onclick = function () {
+    chosenDeleteButton.onclick = function () {
         console.log("happening");
     }
 }
