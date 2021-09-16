@@ -21,29 +21,34 @@ header > h1, footer > p {
 }
 
 #formDiv {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
     padding-left: 0.6em;
+    padding-right: 1em;
 }
 
 #addBtn {
     color: #20408a;
     font-size: 1rem;
     padding: 0.5rem 1rem;
+    margin-left: 0.8em;
 }
 
 .subFormDivs {
     display: flex;
-    justify-content: space-between;
+
 }
 
 .textInput {
-    width: 50em;
+    width: 95%;
+}
+
+.textInputDivs {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #yearInput {
-    width: 15em;
+    width: 50%;
 } 
 
 #authorDiv {
@@ -66,11 +71,34 @@ header > h1, footer > p {
 }
 
 #addedAuthorDiv, #addedTitleDiv, #addedYearDiv {
-    text-align: center;
     background-color:#20408a;
-
 }
 
 .recElms {
     color: #FFF;
 }
+
+#listView {
+    margin: 0.8em;
+}
+
+#listView tr > th {
+    background-color:#20408a;
+    color: #FFF;
+    text-align: left;
+}
+
+#listView tr > th:last-child {
+    width: 1%;
+}
+
+/* Changing style of third child object in the row element */
+#listView tr > th:nth-child(3) {
+    width: 10%;
+}
+
+.trashImg {
+    width: 1.4em;
+}
+
+

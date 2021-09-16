@@ -15,6 +15,7 @@
         <h1>Music CDs</h1>
     </header>
     <main>
+        <br>
         <div id="formDiv">
             <div class="subFormDivs">
                 <div id="authorDiv">
@@ -24,19 +25,21 @@
                     <input class="textInput" type="text" name="authorInput" id="authorInput">
                 </div>
             </div>
+            <br>
             <div class="subFormDivs">
                 <div id="titleDiv">
                     <label for="titleInput">Title</label>
                 </div>
-                <div>
+                <div class="textInputDivs">
                     <input class="textInput" type=" text" name="titleInput" id="titleInput">
                 </div>
             </div>
+            <br>
             <div class="subFormDivs">
                 <div id="yearDiv">
                     <label for="yearInput">Year</label>
                 </div>
-                <div>
+                <div class="textInputDivs">
                     <input id="yearInput" type="number" name="yearInput" id="yearInput">
                 </div>
             </div>
@@ -44,17 +47,8 @@
         </div>
         <button id="addBtn">Add</button>
         <br><br>
-        <div id="recordsDiv">
-            <div id="addedAuthorDiv">
-                <p class="recordsElement">Author</p>
-            </div>
-            <div id="addedTitleDiv">
-                <p class="recordsElement">Title</p>
-            </div>
-            <div id="addedYearDiv">
-                <p class="recordsElement">Year</p>
-            </div>
-        </div>
+        <table id="listView">
+        </table>
     </main>
     <br>
     <footer>

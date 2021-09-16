@@ -87,7 +87,6 @@ function calculateTemperatureConversion(fromUnit, toUnit) {
         resultNumber = (tempNumber - 273.15) * 9 / 5 + 32;
         displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
     }
-
 }
 
 function displayResult(tempNumber, fromUnit, resultNumber, toUnit) {
