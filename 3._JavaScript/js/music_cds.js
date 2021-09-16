@@ -43,13 +43,23 @@ function addMusicRecord() {
                     "<td>" + musicRecords[i].author + "</td>" +
                     "<td>" + musicRecords[i].title + "</td>" +
                     "<td>" + musicRecords[i].year + "</td>" +
-                    "<td><button id = recDelBtn" + i + "><img class=\"trashImg\" src=\"../img/trashbin.png\"</button ></td > " +
+                    "<td><button class=\"delBtn\" id = recDelBtn" + i + "><img class=\"trashImg\" src=\"../img/trashbin.png\"</button ></td > " +
                     "</tr>";
+            }
+
+            if (listView.innerHTML.length > 0) {
+                deleteRecord()
             }
         }
     }
 }
 
-function deleteRecord(buttonId) {
 
+function deleteRecord() {
+    console.log("deleting??")
+    let chosenDeleteButton = document.getElementById("recDelBtn0")
+
+    chosendeleteButton.onclick = function () {
+        console.log("happening");
+    }
 }
