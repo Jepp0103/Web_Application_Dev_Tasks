@@ -38,28 +38,15 @@ function addMusicRecord() {
             listView.style.width = "100 %";
 
             for (let i = 0; i < musicRecords.length; i++) {
-                listView.innerHTML +=
-                    "<tr id = rec" + i + ">" +
-                    "<td>" + musicRecords[i].author + "</td>" +
-                    "<td>" + musicRecords[i].title + "</td>" +
-                    "<td>" + musicRecords[i].year + "</td>" +
-                    "<td><button class=\"delBtn\" id = recDelBtn" + i + "><img class=\"trashImg\" src=\"../img/trashbin.png\"</button ></td > " +
-                    "</tr>";
-            }
-
-            if (listView.innerHTML.length > 0) {
-                deleteRecord()
+                listView.innerHTML += `
+                    <tr>
+                        <td>${musicRecords[i].author}</td>
+                        <td>${musicRecords[i].title} </td>
+                        <td>${musicRecords[i].year}  </td>
+                        <td><img class="trashImg" src="../img/trashbin.png" onclick="this.parentElement.parentElement.remove();"></td>
+                    </tr>
+                    `;
             }
         }
-    }
-}
-
-
-function deleteRecord() {
-    console.log("deleting??")
-    let chosenDeleteButton = document.getElementById("recDelBtn0")
-
-    chosenDeleteButton.onclick = function () {
-        console.log("happening");
     }
 }
