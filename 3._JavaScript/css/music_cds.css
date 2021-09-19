@@ -102,3 +102,13 @@ header > h1, footer > p {
 }
 
 
+@media (max-width: 480px) {
+    .subFormDivs {
+        display: block
+    }
+    .textInputDivs {
+        justify-content: flex-start;
+    }
+}
+
+

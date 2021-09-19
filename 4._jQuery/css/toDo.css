@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0rem;
+}
+
+body {
+    font-family: 'Segoe UI';
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header, footer {
+    background-color: #20408a;
+}
+
+header > button {
+    margin: 1em;
+    width: 6%;
+}
+
+footer {
+    text-align: center;
+}
+
+header > h1, footer > p {
+    color: #FFFF;
+    padding: 0.5rem;
+}
+
+#boardTitles > table {
+    width: 100%;
+    background-color: #a9abae;
+}
+
+#boardTitles > table tr > th {
+    color: #20408a;
+
+}
+
+#tasks {
+    background-color: #6f737d;
+}
+
+
+#tasks > table {
+    width: 100%;
+}
+
+#tasks > table tr {
+    display: flex;
+    justify-content: space-around;
+}
+
+#addBtn {
+    width: 35%;
+    margin: 0.5em;
+    font-size: x-large;
+}
+
+#board {
+    padding: 0.3em;
+    overflow: hidden;
+    border-radius: 1.5em;
+}
+
+
+@media (max-width: 480px) {
+
+}
+
+
