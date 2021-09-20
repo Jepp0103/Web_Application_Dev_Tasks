@@ -15,23 +15,22 @@ function addTask() {
         $("#tasks > table").append(`
             <tr>              
                 <td id=toDoTask${idNumber} class="toDoTasks">
-                <img class="trashImg" src="../img/trashbin.png">
-                <p>${addText.val()}</p>
+                    <img class="trashImg" src="../img/trashbin.png">
+                    <p>${addText.val()}</p>
                 </td>
                 <td id=ongoingTask${idNumber} class="ongoingTasks"></td>
                 <td id=doneTask${idNumber} class="doneTasks"></td>
             </tr>
         `);
-
         idNumber++;
 
         //Closing and clearing input text in dialog
         $('#addDialog').dialog('close');
         $(".toDoTasks").css("background-color", "#ffa07a");
+
         addText.val("");
 
-        $(".ongoingTasks").css("width", "100%");
-
+        //When elements have been added, elements can now be dragged and dropped
         dragAndDropElements();
 
         /*Calling delete method now when elements have been added*/
@@ -48,25 +47,42 @@ function dragAndDropElements() {
         snap: ".ongoingTasks, .doneTasks"
     });
 
+    $(".doneTasks").draggable({
+        cursor: "move",
+        drag: function () {
+            draggedId = $(this).attr("id");
+        },
+        snap: ".ongoingTasks, .toDoTasks"
+    });
 
     $(".ongoingTasks").droppable({
         drop: function () {
             console.log("element dropped:", draggedId.substring(0, 8))
-            if (draggedId.substring(0, 8) == "toDoTask") {
+            console.log("ongoing id", $(this).attr("id"))
+            let ongoingId = $(this).attr("id");
+            if (draggedId.substring(0, 8) == "toDoTask" || draggedId.substring(0, 7) == "toDoTask") {
+                //Removing tasks from previous list
+                let draggedText = $("#" + draggedId + "> p").text();
+                console.log("dragged text", draggedText)
+                $("#" + draggedId).empty();
+                $("#" + draggedId).draggable("disable");
+                $("#" + draggedId).css("background-color", "");
+
+                $("#" + ongoingId).append(`
+                            <img class="trashImg" src="../img/trashbin.png">
+                            <p>${draggedText}</p>
+                `);
+                $("#" + ongoingId).css("background-color", "#eee8aa");
+
                 console.log("dropped elem")
             }
         }
     });
 }
 
-function dropElements() {
-    console.log("hvad sker der?", draggedId)
-
-}
-
-
 function deleteTask() {
     $(".trashImg").click(function () {
+        console.log("deleting")
         $(this).parents(".toDoTasks").remove();
     });
 }
