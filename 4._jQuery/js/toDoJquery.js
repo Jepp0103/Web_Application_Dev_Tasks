@@ -1,3 +1,6 @@
+let idNumber = 1;
+let draggedId;
+
 $(document).ready(function () {
     addDialogs();
     closeDialogs();
@@ -7,18 +10,16 @@ $(document).ready(function () {
 function addTask() {
     $("#addBtn").click(function () {
         let addText = $("#addText");
-        let idNumber = 0;
-        let taskId = "task" + idNumber;
+        console.log("id number", idNumber)
 
-        console.log("taskId", taskId)
         $("#tasks > table").append(`
             <tr>              
-                <td id=${taskId} class="toDoTasks">
+                <td id=toDoTask${idNumber} class="toDoTasks">
                 <img class="trashImg" src="../img/trashbin.png">
                 <p>${addText.val()}</p>
                 </td>
-                <td id=${taskId} class="ongoingTasks"></td>
-                <td id=${taskId} class="doneTasks"></td>
+                <td id=ongoingTask${idNumber} class="ongoingTasks"></td>
+                <td id=doneTask${idNumber} class="doneTasks"></td>
             </tr>
         `);
 
@@ -31,36 +32,44 @@ function addTask() {
 
         $(".ongoingTasks").css("width", "100%");
 
-
-        $(".toDoTasks").draggable({
-            cursor: "move",
-            snap: ".ongoingTasks, .doneTasks",
-            stop: function () {
-
-            }
-        });
-
-        $(".ongoingTasks").droppable({
-            drop: function (event, ui) {
-                console.log("droppoing???")
-                if ($(this).attr("id") == ui.attr("id")) {
-                    console.log("dropped elem")
-                }
-            }
-        });
+        dragAndDropElements();
 
         /*Calling delete method now when elements have been added*/
         deleteTask();
     });
 }
 
+function dragAndDropElements() {
+    $(".toDoTasks").draggable({
+        cursor: "move",
+        drag: function () {
+            draggedId = $(this).attr("id");
+        },
+        snap: ".ongoingTasks, .doneTasks"
+    });
+
+
+    $(".ongoingTasks").droppable({
+        drop: function () {
+            console.log("element dropped:", draggedId.substring(0, 8))
+            if (draggedId.substring(0, 8) == "toDoTask") {
+                console.log("dropped elem")
+            }
+        }
+    });
+}
+
+function dropElements() {
+    console.log("hvad sker der?", draggedId)
+
+}
+
+
 function deleteTask() {
     $(".trashImg").click(function () {
         $(this).parents(".toDoTasks").remove();
     });
 }
-
-
 
 function addDialogs() {
     //Help dialog
