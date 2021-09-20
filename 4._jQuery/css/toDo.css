@@ -51,10 +51,10 @@ header > h1, footer > p {
 
 #tasks > table tr {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-#addBtn {
+#addTaskBtn {
     width: 35%;
     margin: 0.5em;
     font-size: x-large;
@@ -66,9 +66,60 @@ header > h1, footer > p {
     border-radius: 1.5em;
 }
 
+#helpDialog {
+    width: 80%;
+}
 
-@media (max-width: 480px) {
+.ui-dialog-titlebar {
+    display: none;
+}
 
+.toDoTasks, .ongoingTasks, .doneTasks {
+    text-align: left;
+    max-height: 12em;
+    max-width: 30em;
+    border-radius: 0.2em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0.3em;
+    word-wrap: break-word; /*Line seperator*/
+    white-space: normal !important;
+}
+
+.trashImg {
+    width: 1em;
+    margin: 0.2em;
+}
+
+
+/* .toDoTasks {
+    background-color: #ffa07a;
+}*/
+
+/* .ongoingTasks {
+    background-color: #eee8aa;
+} */
+
+/* .doneTasks {
+    background-color: #90ee90;
+} */
+
+@media (max-width: 1200px) {
+    .toDoTasks, .ongoingTasks, .doneTasks {
+        max-width: 20em;
+    }
+}
+
+@media (max-width: 900px) {
+    .toDoTasks, .ongoingTasks, .doneTasks {
+        max-width: 12em;
+    }
+}
+
+@media (max-width: 450px) {
+    .toDoTasks, .ongoingTasks, .doneTasks {
+        max-width: 4em;
+    }
 }
 
 

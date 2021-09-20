@@ -22,6 +22,7 @@
             <p>Add a new "to do" task by pressing the plus ("+") button.
                 Move a task from one area to another ("to do", "ongoing", "done") by dragging and dropping it.
             </p>
+            <button id="closeBtn">Close</button>
         </div>
     </header>
     <main>
@@ -37,19 +38,16 @@
             </div>
             <div id="tasks">
                 <table>
-                    <tr>
-                        <td>ad</td>
-                        <td>sada</td>
-                        <td>sada</td>
-                    </tr>
                 </table>
-                <button id="addBtn">+</button>
-                <div id="addDialog"><textarea name="addText" id="addText" cols="10" rows="5"></textarea></div>
+                <button id="addTaskBtn">+</button>
+                <div id="addDialog">
+                    <textarea name="addText" id="addText" cols="30" rows="10"></textarea>
+                    <button id="cancelBtn">Cancel</button>
+                    <button id="addBtn">Add</button>
+                </div>
             </div>
         </div>
     </main>
 </body>
-
-
 
 </html>
