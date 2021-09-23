@@ -22,68 +22,73 @@ function addTask() {
                 <td id=doneTask${idNumber} class="doneTasks"></td>
             </tr>
         `);
+
+        $("#toDoTask" + idNumber).css("background-color", "#ffa07a");
         idNumber++;
 
         //Closing and clearing input text in dialog
         $('#addDialog').dialog('close');
-        $(".toDoTasks").css("background-color", "#ffa07a");
 
         addText.val("");
 
         //When elements have been added, elements can now be dragged and dropped
-        dragAndDropElements();
+        dragElement(".toDoTasks", ".ongoingTasks, .doneTasks");
+        dragElement(".doneTasks", ".ongoingTasks, .toDoTasks");
+        dragElement(".ongoingTasks", ".doneTasks .toDoTasks");
+
+        dropElement(".toDoTask", "#ffa07a");
+        dropElement(".ongoingTasks", "#eee8aa");
+        dropElement(".doneTasks", "#90ee90");
+
 
         /*Calling delete method now when elements have been added*/
-        deleteTask();
+        deleteTask(".toDoTasks");
     });
 }
 
-function dragAndDropElements() {
-    $(".toDoTasks").draggable({
+function dragElement(draggedTaskType, snapTasksTypes) {
+    $(draggedTaskType).draggable({
         cursor: "move",
         drag: function () {
             draggedId = $(this).attr("id");
+            console.log("dragelement:", draggedTaskType)
         },
-        snap: ".ongoingTasks, .doneTasks"
+        snap: snapTasksTypes
     });
+}
 
-    $(".doneTasks").draggable({
-        cursor: "move",
-        drag: function () {
-            draggedId = $(this).attr("id");
-        },
-        snap: ".ongoingTasks, .toDoTasks"
-    });
-
-    $(".ongoingTasks").droppable({
+function dropElement(droppedTaskType, taskTypeColor) {
+    $(droppedTaskType).droppable({
         drop: function () {
-            console.log("element dropped:", draggedId.substring(0, 8))
-            console.log("ongoing id", $(this).attr("id"))
-            let ongoingId = $(this).attr("id");
-            if (draggedId.substring(0, 8) == "toDoTask" || draggedId.substring(0, 7) == "toDoTask") {
-                //Removing tasks from previous list
-                let draggedText = $("#" + draggedId + "> p").text();
-                console.log("dragged text", draggedText)
-                $("#" + draggedId).empty();
-                $("#" + draggedId).draggable("disable");
-                $("#" + draggedId).css("background-color", "");
+            console.log("dropelement type:", droppedTaskType)
 
-                $("#" + ongoingId).append(`
-                            <img class="trashImg" src="../img/trashbin.png">
-                            <p>${draggedText}</p>
-                `);
-                $("#" + ongoingId).css("background-color", "#eee8aa");
+            let taskTypeId = $(this).attr("id");
 
-                console.log("dropped elem")
-            }
+            //Removing tasks from previous list
+            let draggedText = $("#" + draggedId + "> p").text();
+            console.log("dragged text", draggedText)
+            $("#" + draggedId).empty();
+            $("#" + draggedId).draggable("disable");
+            $("#" + draggedId).css("background-color", "");
+
+            $("#" + taskTypeId).append(`
+                    <img class="trashImg" src="../img/trashbin.png">
+                    <p>${draggedText}</p>
+            `);
+
+            //Setting background color of specific task
+            $("#" + taskTypeId).css("background-color", taskTypeColor);
+
+            //Calling delete tasks so the specific type task can be deleted
+            deleteTask(droppedTaskType);
         }
     });
 }
 
-function deleteTask() {
+function deleteTask(typeTask) {
     $(".trashImg").click(function () {
         console.log("deleting")
-        $(this).parents(".toDoTasks").remove();
+        $(this).parents(typeTask).remove();
     });
 }
 
@@ -110,9 +115,9 @@ function addDialogs() {
 function closeDialogs() {
     $("#cancelBtn").click(function () {
         $("#addDialog").dialog("close");
-    })
+    });
 
     $("#closeBtn").click(function () {
         $("#helpDialog").dialog("close");
-    })
+    });
 }

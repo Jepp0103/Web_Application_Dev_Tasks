@@ -92,18 +92,6 @@ header > h1, footer > p {
 }
 
 
-/* .toDoTasks > p, .ongoingTasks > p, .ongoingTasks >{
-    background-color: #ffa07a;
-}*/
-
-/* .ongoingTasks {
-    background-color: #eee8aa;
-} */
-
-/* .doneTasks {
-    background-color: #90ee90;
-} */
-
 @media (max-width: 1200px) {
     .toDoTasks, .ongoingTasks, .doneTasks {
         width: 20em;
