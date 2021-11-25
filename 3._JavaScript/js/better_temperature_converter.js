@@ -58,11 +58,6 @@ function calculateTemperatureConversion(fromUnit, toUnit) {
         displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
     }
 
-    if (fromUnit === "°C" && toUnit === "°F") {
-        resultNumber = tempNumber * 1.8 + 32;
-        displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
-    }
-
     if (fromUnit === "°C" && toUnit === "K") {
         resultNumber = tempNumber + 273.15;
         displayResult(tempNumber, fromUnit, resultNumber.toFixed(2), toUnit);
